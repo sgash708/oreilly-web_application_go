@@ -13,7 +13,6 @@ http.HandleFunc("/", func(w htto.ResponseWriter, r *http.Request) {
 クリーンな方法として、templateを使う。
 
 ## templateについて
-
 メリット: 汎用的なテキストの中に固有のテキストを混在可能。
 
 ```
@@ -22,14 +21,14 @@ http.HandleFunc("/", func(w htto.ResponseWriter, r *http.Request) {
 ```
 
 ### 種類
-* `text/template`
-* `html/template`
+* <code>text/template</code>
+* <code>html/template</code>
     * データ挿入時、コンテキストを認識している
         * 不正なスクリプト埋め込む攻撃を回避
         * URLで使用できない文字をエンコードする
 
 ### 基本的な使い方
-* `templates/`でHTMLファイル作成
+* <code>templates/</code>でHTMLファイル作成
 * テンプレートの読み込み
 * テンプレートをコンパイル
     * データを埋め込める状態にする
@@ -42,3 +41,9 @@ http.HandleFunc("/", func(w htto.ResponseWriter, r *http.Request) {
 * テンプレートを一回だけコンパイル
 * コンパイルされたテンプレートへの参照を保持
 * HTTPリクエストに応答する
+
+### templateHandlerについて
+ServeHTTPメソッドは、<code>http.HandleFunc</code>に似ている。
+入力元のファイルを読み込みテンプレートをコンパイル。
+その結果を<code>http.ResponseWriter</code>オブジェクトに出力する。
+<code>ServeHTTP</code>は、<code>http.Handler</code>インターフェースに適合しているので<code>http.Handle</code>に直接渡すことができる
