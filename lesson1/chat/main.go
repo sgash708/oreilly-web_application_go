@@ -21,7 +21,7 @@ type templateHandler struct {
 
 /*
 	REF: https://pkg.go.dev/net/http#Handler
-	HTTPリクエストの処理のために、ServerHTTPメソッドだけ存在していれば良い。
+	HTTPリクエストの処理のためには、最低限ServerHTTPメソッドだけ存在していれば良い。
 */
 // ServerHTTP HTTPリクエストの処理
 func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
